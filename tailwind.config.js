@@ -4,9 +4,18 @@ module.exports = {
   theme: {
     extend: {
       margintop: {
-        '25%': '25%',
+        '5%': '5%',
       },
       marginleft: {
+        '40%': '40%',
+      },
+      marginleft: {
+        '40%': '40%',
+      },
+      height: {
+        '40%': '40%',
+      },
+      with: {
         '40%': '40%',
       },
     },

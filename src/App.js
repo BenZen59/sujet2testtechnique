@@ -1,9 +1,16 @@
 import './App.css';
+import Forest from './img/forest.jpg';
 
 function App() {
   return (
     <div>
-      <form className='mt-[25%] ml-[40%]'>
+      <div className='ml-[25%] mt-10 relative'>
+        <img src={Forest} alt='fond' className='border-black border-2 ' />
+        <h1 className='absolute text-6xl text-white top-1/2 left-80 -translate-x-1/2 -translate-y-1/2'>
+          Pixabay Search
+        </h1>
+      </div>
+      <form className='mt-[2%] ml-[40%]'>
         <input
           type='text'
           placeholder='Search..'
