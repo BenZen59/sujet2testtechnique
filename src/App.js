@@ -1,20 +1,29 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Forest from './img/forest.jpg';
+import { createPrinter } from 'typescript';
 
 function App() {
   const [previewURL, setPreviewURL] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [copie, testcopie] = useState([]);
+  const [search, setSearch] = useState(['']);
 
-  useEffect(() => {
+  const update = (event) => {
+    event.preventDefault();
     axios
       .get(
         'https://pixabay.com/api/?key=30739318-39cc688ac56ef1a46408d9730&q=yellow+flowers&image_type=photo'
       )
-      .then(({ data }) => {
-        setPreviewURL(data.hits);
+      .then((response) => {
+        setPreviewURL(response.data.hits);
       });
-  }, []);
+  };
+
+  const handleChange = (event) => {
+    const valueAfterChange = event.target.value;
+    setSearch(valueAfterChange);
+  };
+
   return (
     <div>
       <div className='ml-[25%] mt-10 relative'>
@@ -29,10 +38,12 @@ function App() {
           placeholder='Search..'
           name='search'
           className='w-50 h-12 rounded-lg text-2xl border-2 border-black pl-1'
+          onChange={handleChange}
         />
         <button
           type='submit'
           className='w-16 h-12 rounded-lg bg-gray-300 text-xl cursor-pointer ml-2 border-2 border-black mb-0'
+          onClick={update}
         >
           Valider
         </button>
