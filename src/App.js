@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import Forest from './img/forest.jpg';
 import { createPrinter } from 'typescript';
 
 function App() {
   const [previewURL, setPreviewURL] = useState([]);
-  const [copie, testcopie] = useState([]);
   const [search, setSearch] = useState(['']);
 
   const update = (event) => {
     event.preventDefault();
     axios
       .get(
-        'https://pixabay.com/api/?key=30739318-39cc688ac56ef1a46408d9730&q=yellow+flowers&image_type=photo'
+        `https://pixabay.com/api/?key=30739318-39cc688ac56ef1a46408d9730&q=${search}&image_type=photo`
       )
       .then((response) => {
         setPreviewURL(response.data.hits);
